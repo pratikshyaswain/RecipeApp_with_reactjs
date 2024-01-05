@@ -23,139 +23,110 @@ const Recipe = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div style={{ width: "90%", margin: "auto" }}>
-        <h2
-          style={{
-            marginTop: "30px",
-            fontWeight: "bold",
-            marginLeft: "40px",
-            width: "200px",
-          }}
-        >
-          {data.strMeal}
-        </h2>
-        <div>
-          <div className="image">
-            <img
-              src={data.strMealThumb}
-              style={{
-                width: "300px",
-                border: "4px solid black",
-                margin: "10px",
-                marginLeft: "20px",
-              }}
-            />
-            {/* <h2
-              style={{
-                // marginTop: "30px",
-                fontWeight: "bold",
-                marginLeft: "49px",
-                width: "200px",
-              }}
-            >
-              {data.strCategory}
-            </h2> */}
+
+      <div className="parent">
+        <div className="main">
+          <h1
+            style={{
+              marginTop: "30px",
+            }}
+          >
+            {data.strMeal}
+          </h1>
+          <div>
+            <div className="image">
+              <img
+                src={data.strMealThumb}
+                style={{
+                  border: "4px solid black",
+                  borderRadius: "35px",
+                }}
+              />
+            </div>
+            <div className="container">
+              <button
+                className="btn"
+                style={{
+                  width: "140px",
+                  backgroundColor: "#ffa500",
+                  fontWeight: "bold",
+                }}
+                onClick={() => setView("ingredient")}
+              >
+                Ingredient
+              </button>
+              <button
+                className="btn"
+                style={{
+                  width: "150px",
+                  backgroundColor: "#ffa500",
+                  fontWeight: "bold",
+                }}
+                onClick={() => setView("recipe")}
+              >
+                View recipe
+              </button>
+            </div>
           </div>
-          <div className="container">
-            <button
-              className="btn"
-              style={{
-                width: "100px",
-                backgroundColor: "#f44020",
-                fontWeight: "bold",
-                marginTop: "20px",
-                marginLeft: "0px",
-                marginRight: "10px",
-              }}
-              onClick={() => setView("ingredient")}
-            >
-              Ingredient
-            </button>
-            <button
-              className="btn"
-              style={{
-                width: "120px",
-                backgroundColor: "#f44020",
-                fontWeight: "bold",
-                marginTop: "20px",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
-              onClick={() => setView("recipe")}
-            >
-              View recipe
-            </button>
-          </div>
+        </div>
+        <div className="main2">
+          {view === "recipe" ? (
+            <div>
+              <h2
+                style={{
+                  textDecoration: "underline",
+                }}
+              >
+                Recipe
+              </h2>
+              <p className="p">{data.strInstructions}</p>
+            </div>
+          ) : (
+            <div>
+              <h2
+                style={{
+                  textDecoration: "underline",
+                }}
+              >
+                Ingredient
+              </h2>
+              <ul>
+                <li>
+                  <h3 style={{ fontWeight: "bold" }}>
+                    {data.strIngredient1}:{data.strMeasure1}
+                  </h3>
+                </li>
+                <li>
+                  <h3 style={{ fontWeight: "bold" }}>
+                    {data.strIngredient2}:{data.strMeasure2}
+                  </h3>
+                </li>
+                <li>
+                  <h3 style={{ fontWeight: "bold" }}>
+                    {data.strIngredient3}:{data.strMeasure3}
+                  </h3>
+                </li>
+                <li>
+                  <h3 style={{ fontWeight: "bold" }}>
+                    {data.strIngredient4}:{data.strMeasure4}
+                  </h3>
+                </li>
+                <li>
+                  <h3 style={{ fontWeight: "bold" }}>
+                    {data.strIngredient5}:{data.strMeasure5}
+                  </h3>
+                </li>
+                <li>
+                  <h3 style={{ fontWeight: "bold" }}>
+                    {data.strIngredient6}:{data.strMeasure6}
+                  </h3>
+                </li>
+              </ul>
+            </div>
+          )}
+          /
         </div>
       </div>
-      {view === "recipe" ? (
-        <div
-          style={{
-            position: "absolute",
-            left: "470px",
-            top: "100px",
-            width: "900px",
-            fontWeight: "bold",
-            fontSize: "17px",
-          }}
-        >
-          <h2
-            style={{
-              fontWeight: "bold",
-              marginLeft: "300px",
-              textDecoration: "underline",
-            }}
-          >
-            Recipe
-          </h2>
-          <p style={{ marginTop: "0px" }}>{data.strInstructions}</p>
-        </div>
-      ) : (
-        <div style={{ position: "absolute", left: "600px", top: "100px" }}>
-          <h2
-            style={{
-              fontWeight: "bold",
-              textDecoration: "underline",
-              marginLeft: "80px",
-            }}
-          >
-            Ingredient
-          </h2>
-          <ul style={{ marginTop: "20px" }}>
-            <li>
-              <h3 style={{ fontWeight: "bold" }}>
-                {data.strIngredient1}:{data.strMeasure1}
-              </h3>
-            </li>
-            <li>
-              <h3 style={{ fontWeight: "bold" }}>
-                {data.strIngredient2}:{data.strMeasure2}
-              </h3>
-            </li>
-            <li>
-              <h3 style={{ fontWeight: "bold" }}>
-                {data.strIngredient3}:{data.strMeasure3}
-              </h3>
-            </li>
-            <li>
-              <h3 style={{ fontWeight: "bold" }}>
-                {data.strIngredient4}:{data.strMeasure4}
-              </h3>
-            </li>
-            <li>
-              <h3 style={{ fontWeight: "bold" }}>
-                {data.strIngredient5}:{data.strMeasure5}
-              </h3>
-            </li>
-            <li>
-              <h3 style={{ fontWeight: "bold" }}>
-                {data.strIngredient6}:{data.strMeasure6}
-              </h3>
-            </li>
-          </ul>
-        </div>
-      )}
-
       <FooterData></FooterData>
     </>
   );

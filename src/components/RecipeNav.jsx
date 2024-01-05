@@ -20,17 +20,7 @@ const RecipeNav = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div
-        style={{
-          width: "90%",
-          margin: "auto",
-          display: "grid",
-          gridTemplateColumns: "350px 350px 350px 350px",
-          gridGap: "1.5rem",
-          marginTop: "20px",
-          marginLeft: "20px",
-        }}
-      >
+      <div className="corba">
         {data.map((i) => {
           return (
             <>
@@ -39,12 +29,8 @@ const RecipeNav = () => {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <div style={{ textAlign: "center" }}>
-                  <div className="image">
-                    <img
-                      style={{ width: "320px" }}
-                      src={i.strMealThumb}
-                      alt=""
-                    />
+                  <div className="crba">
+                    <img src={i.strMealThumb} alt="" />
                   </div>
                   <h3 style={{ fontWeight: "bold", marginTop: "10px" }}>
                     Name: {i.strMeal}
@@ -57,7 +43,7 @@ const RecipeNav = () => {
                       fontSize: "20px",
                     }}
                   >
-                    Category: {i.strCategory}
+                    {i.strArea} Food
                   </h3>
                 </div>
               </Link>

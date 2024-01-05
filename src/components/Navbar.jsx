@@ -19,7 +19,7 @@ const Navbar = () => {
       >
         <div
           className="container-fluid"
-          style={{ backgroundColor: "#f44020", minHeight: "70px" }}
+          style={{ backgroundColor: "#ffa500", minHeight: "70px" }}
         >
           <Link to={`/`} style={{ textDecoration: "none" }}>
             <a className="navbar-brand" href="#" style={{ fontWeight: "bold" }}>

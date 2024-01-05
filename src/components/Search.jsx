@@ -23,43 +23,54 @@ const Search = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div
-        style={{
-          width: "90%",
-          margin: "auto",
-          display: "grid",
-          gridTemplateColumns: "350px 350px 350px 350px",
-          gridGap: "1.5rem",
-          marginTop: "20px",
-          marginLeft: "20px",
-        }}
-      >
-        {data.map((i) => {
-          return (
-            <>
-              <Link
-                to={`/${i.idMeal}`}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <div style={{ textAlign: "center" }}>
-                  <div className="image">
-                    <img
-                      style={{ width: "320px" }}
-                      src={i.strMealThumb}
-                      alt=""
-                    />
+      <div className="corba">
+        {data == null ? (
+          <>
+            <div className="section">
+              <div className="content">
+                <p style={{ color: "black", fontWeight: "bold" }}>
+                  This recipe is not available please look for another one...
+                </p>
+              </div>
+            </div>
+          </>
+        ) : (
+          data.map((i) => {
+            return (
+              <>
+                {/* <div className="searchrecipe"> */}
+                <Link
+                  to={`/${i.idMeal}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div style={{ textAlign: "center" }}>
+                    <div className="crba">
+                      <img
+                        style={{ width: "320px" }}
+                        src={i.strMealThumb}
+                        alt=""
+                      />
+                    </div>
+                    <h3 style={{ fontWeight: "bold", marginTop: "10px" }}>
+                      {i.strMeal}
+                    </h3>
+                    <h3
+                      style={{
+                        fontWeight: "bold",
+                        marginTop: "10px",
+                        color: "brown",
+                        fontSize: "20px",
+                      }}
+                    >
+                      {i.strArea} Food
+                    </h3>
                   </div>
-                  <h3 style={{ fontWeight: "bold", marginTop: "10px" }}>
-                    {i.strMeal}
-                  </h3>
-                  <h3 style={{ fontWeight: "bold", marginTop: "10px" }}>
-                    Category: {i.strCategory}
-                  </h3>
-                </div>
-              </Link>
-            </>
-          );
-        })}
+                </Link>
+                {/* </div> */}
+              </>
+            );
+          })
+        )}
       </div>
       <FooterData></FooterData>
     </>

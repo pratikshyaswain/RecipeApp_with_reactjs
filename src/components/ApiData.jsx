@@ -1,10 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-// import React, { useEffect } from "react
+import img from "../assets/recipeee.jpg";
 function ApiData() {
   const [data, setData] = useState([]);
 
@@ -20,57 +17,26 @@ function ApiData() {
     fetchApi();
   }, []);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 1000,
-    cssEase: "linear",
-  };
   return (
     <>
-      <div className="slider">
-        <Slider {...settings}>
-          {data.map((api) => {
-            return (
-              <>
-                <Link
-                  to={`/${api.idMeal}`}
-                  style={{
-                    textDecoration: "none",
-                  }}
-                >
-                  <div>
-                    <img
-                      className="image"
-                      src={api.strMealThumb}
-                      style={{
-                        width: "350px",
-                        // length: "50px",
-                        // maxHeight: "450px",
-                        padding: "10px",
-                        marginTop: "20px",
-                      }}
-                    />
-                    <h3
-                      style={{
-                        fontWeight: "bold",
-                        marginTop: "10px",
-                        color: "black",
-                        marginLeft: "110px",
-                      }}
-                    >
-                      {api.strMeal}
-                    </h3>
-                  </div>
-                </Link>
-              </>
-            );
-          })}
-        </Slider>
+      <div className="section">
+        <div className="body">
+          <img className="mainImg" src={img} alt="" />
+        </div>
+        <div className="content">
+          <p>Hello!</p>
+          <h4>Welcome</h4>
+          <h1>To The Recipe App</h1>
+          <div>
+            <Link
+              to="/RecipeNav"
+              className="btn2"
+              style={{ textDecoration: "none" }}
+            >
+              Recipes
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );

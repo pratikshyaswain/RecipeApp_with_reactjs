@@ -3,11 +3,15 @@ import React from "react";
 const FooterData = () => {
   return (
     <>
-      <footer>
-        <div className=" text-center footer">
-          <small>Made By Pratikshya Swain</small>
+      <div className="footer">
+        <div className="footer-container">
+          <p>
+            Copyright <i class="fa-regular fa-copyright"></i> 2024 <br />
+            Developed By Pratikshya Swain <br />
+            All right reserved
+          </p>
         </div>
-      </footer>
+      </div>
     </>
   );
 };
